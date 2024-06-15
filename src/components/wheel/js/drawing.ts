@@ -50,6 +50,7 @@ export const drawSegment = (
     ctx:CanvasRenderingContext2D, 
     c:number, 
     r:number, 
+    theme:string
   ) => {
     ctx.save();
 
@@ -61,12 +62,8 @@ export const drawSegment = (
 
     ctx.closePath()
 
-    ctx.fillStyle = '#eb6b6f'
+    ctx.fillStyle = theme;
     ctx.fill()
-
-    // ctx.strokeStyle = '#00ff00' 
-    // ctx.lineWidth = 4
-    // ctx.stroke()
 
     ctx.restore();
   }
@@ -94,7 +91,8 @@ export const drawWheel = (
   items:string[], 
   r:number, 
   spinAngle:number, 
-  segAngle:number) => 
+  segAngle:number,
+  theme:string) => 
   {
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       
@@ -102,16 +100,18 @@ export const drawWheel = (
       ctx.translate(40, 0);
   
       let segOffsetAngle = segAngle / 2;
+
+      const themeColors = colors[theme]
   
       for (let i = 0; i < items.length; i++) {
-        let c = i % colors.length;
+        let c = i % themeColors.segments.length;
         if(c === 0 && i === items.length - 1){
           c = 2
         }
 
-          drawSegment(ctx, r, r, items.length, segOffsetAngle + spinAngle, segAngle, colors[c].segment);
-          drawSegmentText(ctx, r, r, items.length, (segAngle / 2) + segOffsetAngle + spinAngle, items[i], colors[c].text);
-          drawArrow(ctx,r,r)
+          drawSegment(ctx, r, r, items.length, segOffsetAngle + spinAngle, segAngle, themeColors.segments[c].segment);
+          drawSegmentText(ctx, r, r, items.length, (segAngle / 2) + segOffsetAngle + spinAngle, items[i], themeColors.segments[c].text);
+          drawArrow(ctx,r,r, themeColors.segments[2].segment)
   
           segOffsetAngle += segAngle;
       }

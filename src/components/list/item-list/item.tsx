@@ -42,7 +42,7 @@ export const Item:React.FC<Props> = ({item, selected, checked}) => {
                     )}
             >
                 <input 
-                    className={clsx("accent-theme-1 relative z-20",
+                    className={clsx("accent-theme-2 relative z-20",
                         {'opacity-0': !checked}
                     )}
                     type="checkbox" 

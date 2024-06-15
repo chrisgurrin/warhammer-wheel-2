@@ -13,7 +13,7 @@ export const ItemList= () => {
 
     return (
         <div className="flex flex-col flex-grow gap-0.5">
-            <div className="flex flex-col flex-grow gap-0.5 overflow-y-scroll">
+            <div className="flex flex-col flex-grow gap-0.5 overflow-y-scroll bg-zinc-900 p-0.5">
                 {items.map((item) => {
                     const selected  = !!inProgress.find(x => x === item)
                     const checked = !filter.find((x) => x === item)

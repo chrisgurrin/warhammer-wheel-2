@@ -11,7 +11,7 @@ export const TextView = () => {
 
     return (
         <textarea
-            className="w-full h-full bg-zinc-700 pl-1"
+            className="w-full h-full bg-zinc-900 pl-1"
             defaultValue={items.join(`\n`)} 
             onInput={debounce((e) => onTextChange(e.target.value), 200)}>
         </textarea>

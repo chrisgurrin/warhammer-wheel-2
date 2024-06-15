@@ -51,18 +51,18 @@ const playSpinAnimation = async (rotation:number, duration:number, start:number,
 export const getSegAngle = (items:string[]) => deg2rad(360 / items.length);
 
 // clear the canvas and redraw the wheel with a given rotation.
-export const redraw = (items:string[], r:number, spinAngle:number, ctx?: CanvasRenderingContext2D) => {
+export const redraw = (items:string[], r:number, spinAngle:number, theme:string, ctx?: CanvasRenderingContext2D) => {
     const segAngle = getSegAngle(items);
 
     if(!ctx) return
 
     clear(ctx)
-    window.requestAnimationFrame(() => drawWheel(ctx, items, r, spinAngle, segAngle))
+    window.requestAnimationFrame(() => drawWheel(ctx, items, r, spinAngle, segAngle, theme))
 }
 
 
 //  spin the wheel and return picked item
-export const spin = async(items:string[], r:number, ctx?: CanvasRenderingContext2D):Promise<PickedItem|undefined> => {
+export const spin = async(items:string[], r:number, theme:string, ctx?: CanvasRenderingContext2D):Promise<PickedItem|undefined> => {
     if(!ctx) return;
 
     const segAngle = getSegAngle(items);
@@ -82,7 +82,7 @@ export const spin = async(items:string[], r:number, ctx?: CanvasRenderingContext
         rotationAmount, 
         duration, 
         Date.now(), 
-        (spinAngle:number) => redraw(items, r, spinAngle, ctx)); 
+        (spinAngle:number) => redraw(items, r, spinAngle, theme, ctx)); 
 
     return pickedItem
 }

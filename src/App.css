@@ -3,13 +3,18 @@
 @tailwind utilities;
 
 @layer base {
-  html[data-theme='default'] {
+  [data-theme='bloodOrange'] {
     --color-theme-100: #eb6b6f;
     --color-theme-200: #f9a875;
   }
 
-  html[data-theme='neon'] {
-    --color-theme-100: 34, 9, 46;
-    --color-accent-200: 45, 51, 59;
+  [data-theme='miku'] {
+    --color-theme-200: #78478e;
+    --color-theme-100: #58e1c3;
+  }
+
+  [data-theme='moonlight'] {
+    --color-theme-100: #5fc75d;  
+    --color-theme-200: #36868f;
   }
 }

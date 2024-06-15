@@ -5,6 +5,7 @@ import { ItemStore } from '../../redux/reducers/items';
 import { SelectedItemStore, setSelectedItem } from '../../redux/reducers/selectedItem';
 import { FilterStore } from '../../redux/reducers/filter';
 import { addInProgressItem } from '../../redux/reducers/inProgress';
+import { ThemeStore } from '../../redux/reducers/theme';
 
 type Props = {
     items?:string[]
@@ -17,6 +18,8 @@ export const Wheel:React.FC<Props> = () => {
     const items = useSelector((state:ItemStore) => state.items.value);
     const filter = useSelector((state:FilterStore) => state.filter.value);
     const selectedItem = useSelector((state:SelectedItemStore) => state.selectedItem.value);
+    const theme = useSelector((state:ThemeStore) => state.theme.value);
+
     const dispatch = useDispatch();
 
     const filterItems = (items:string[], filter:string[]) => {
@@ -30,6 +33,7 @@ export const Wheel:React.FC<Props> = () => {
         const pick = await spin(
             filterItems(items, filter),
             radius,
+            theme,
             ctx
         );
         if(pick) {
@@ -51,8 +55,8 @@ export const Wheel:React.FC<Props> = () => {
             segAngle = (filtered.length - i) * getSegAngle(filtered)
         }
 
-        redraw(filtered, radius, segAngle, ctx)
-    },[wheelRef, items, selectedItem, filter])
+        redraw(filtered, radius, segAngle, theme, ctx)
+    },[wheelRef, items, selectedItem, filter, theme])
 
     return (
         <div className="flex flex-col items-center gap-8">
