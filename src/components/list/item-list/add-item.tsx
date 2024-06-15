@@ -14,6 +14,8 @@ export const AddItem = () => {
     const add = () => {
         if(inputRef.current){
             dispatch(addItem(inputRef.current.value))
+            inputRef.current.value = '';
+            inputRef.current.focus();
         }
     }
 

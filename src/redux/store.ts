@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { loadState } from "./browser-storage";
 
 import filterReducer from './reducers/filter'
@@ -9,11 +9,11 @@ import inProgressReducer from './reducers/inProgress';
 
 export default configureStore({
   preloadedState: loadState(),
-  reducer: {
+  reducer: combineReducers({
     filter: filterReducer,
     inProgress: inProgressReducer,
     items: itemsReducer,
     selectedItem: selectedItemReducer,
     view: viewReducer,
-  }
+  })
 })

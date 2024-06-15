@@ -1,22 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export type FilterStore = {
-  filter:{
-    value: string[]
-  }
+  filter: Store
+}
+
+type Store = {
+  value:string[]
+}
+
+const defaultStore:Store = {
+    value: []
 }
 
 export const filterSlice = createSlice({
   name: 'filter',
-  initialState: {
-    value: []
-  },
+  initialState: defaultStore,
   reducers: {
     setFilter: (state, action) => {
       state.value = action.payload
     },
     addFilterItem: (state, action) => {
-      state.value = [...state.value, action.payload] as never[]
+      state.value = [...state.value, action.payload]
     },
     removeFilterItem: (state, action) => {
         state.value = state.value.filter(x => x !== action.payload)

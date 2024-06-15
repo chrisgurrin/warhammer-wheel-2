@@ -25,9 +25,7 @@ export const Item:React.FC<Props> = ({item, selected, checked}) => {
     
     return (
         
-        <div
-            className="group/item flex justify-between px-2 py-1 bg-zinc-700 rounded-sm relative z-90 cursor-pointer"
-        >
+        <div className="group/item flex justify-between px-2 py-1 bg-zinc-700 rounded-sm relative z-90 cursor-pointer">
             <div className="flex gap-2">
                 <button  
                     onClick={onClick}
@@ -39,9 +37,14 @@ export const Item:React.FC<Props> = ({item, selected, checked}) => {
                 </button>
                 {item}
             </div>
-            <div className="flex gap-2.5">
+            <div className={clsx("flex gap-2.5 accent-theme-1 relative",
+                        {'before:border before:border-solid before:border-theme-1 before:rounded before:w-4 before:h-4 before:top-0 before:left-0 before:absolute before:content-[""]':!checked}
+                    )}
+            >
                 <input 
-                    className="accent-theme-1"
+                    className={clsx("accent-theme-1 relative z-20",
+                        {'opacity-0': !checked}
+                    )}
                     type="checkbox" 
                     checked={checked}
                     onChange={() => {

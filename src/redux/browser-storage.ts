@@ -21,8 +21,7 @@ export function loadState() {
   }
 }
 
-export async function saveState(state:unknown) {
-    console.log('save', state)
+export async function saveState(state:{selectedItem:unknown, items:unknown, inProgress:unknown}) {
     try {
       const serializedState = JSON.stringify({
         selectedItem: state.selectedItem,
