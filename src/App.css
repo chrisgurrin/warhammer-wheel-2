@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+[data-theme='americana'] {
+    --color-theme-100: #71969f;  
+    --color-theme-200: #d71a21;
+    }
+
   [data-theme='bloodOrange'] {
     --color-theme-100: #eb6b6f;
     --color-theme-200: #f9a875;
