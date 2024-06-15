@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html[data-theme='default'] {
+    --color-theme-100: #eb6b6f;
+    --color-theme-200: #f9a875;
+  }
+
+  html[data-theme='neon'] {
+    --color-theme-100: 34, 9, 46;
+    --color-accent-200: 45, 51, 59;
+  }
+}
