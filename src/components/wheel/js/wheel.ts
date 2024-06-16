@@ -8,9 +8,9 @@ export type PickedItem = {
 }
 
 // constants
-const duration = 8000       //milliseconds
-const frameStep = 1000/60   //60 fps
-const numRotations = 15
+const duration = 4000       //milliseconds
+const frameStep = 1000/120   //60 fps
+const numRotations = 1
 
 const getPickedItem = (items: string[]):PickedItem => {
     // choose how many segments to offset the final rotation by (anticlockwise)
@@ -30,8 +30,8 @@ const playSpinAnimation = async (rotation:number, duration:number, start:number,
     const elapsed = Date.now() - start
     const spinAngle = rotation * cubicBezier(
         elapsed/duration, 
-        0.55, 
-        1)
+        {x:0, y:1}, 
+        {x:0.95, y:1}).y
 
     // draw the wheel
     draw(spinAngle)    
@@ -77,6 +77,8 @@ export const spin = async(items:string[], r:number, theme:string, ctx?: CanvasRe
     
     const pickedItem = getPickedItem(items);
     const rotationAmount = deg2rad(numRotations * 360) +  (segAngle *  pickedItem.offset);
+
+    console.log(rotationAmount)
 
     await playSpinAnimation(
         rotationAmount, 

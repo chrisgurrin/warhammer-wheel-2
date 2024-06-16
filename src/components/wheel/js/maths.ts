@@ -12,17 +12,24 @@ export const rad2deg = (radians:number) => radians * (180/Math.PI)
 // 	}
 // 	return amountOfChange / 2 * (Math.sqrt(1 - (elapsed -= 2) * elapsed) + 1) + initialValue;
 // }
+type Vec2 = {x:number; y:number}
+export function cubicBezier(t:number, P1:Vec2, P2:Vec2) {
+    const P0 = { x: 0, y: 0 }; // Fixed point (0, 0)
+    const P3 = { x: 1, y: 1 }; // Fixed point (1, 1)
 
-export function cubicBezier(t:number, P1:number, P2:number) {
-    const P0 = 0;
-    const P3 = 1;
+    const x = Math.pow(1 - t, 3) * P0.x +
+              3 * Math.pow(1 - t, 2) * t * P1.x +
+              3 * (1 - t) * Math.pow(t, 2) * P2.x +
+              Math.pow(t, 3) * P3.x;
 
-    const y = Math.pow(1 - t, 3) * P0 +
-              3 * Math.pow(1 - t, 2) * t * P1 +
-              3 * (1 - t) * Math.pow(t, 2) * P2 +
-              Math.pow(t, 3) * P3;
+    const y = Math.pow(1 - t, 3) * P0.y +
+              3 * Math.pow(1 - t, 2) * t * P1.y +
+              3 * (1 - t) * Math.pow(t, 2) * P2.y +
+              Math.pow(t, 3) * P3.y;
 
-    return y;
+            //   console.log(y)
+
+    return { x: x, y: y };
 }
 
 export function getScaledValue(value:number, sourceRangeMin:number, sourceRangeMax:number, targetRangeMin:number, targetRangeMax:number) {
