@@ -13,15 +13,15 @@ export const ItemListToolbar = () => {
     return (
         <div   
             className={clsx(
-                "flex items-end justify-end gap-2",
+                "flex items-end justify-end gap-2 select-none",
                 {"invisible": view !== 'item'}
             )}
         >
             {`${items.length - filter.length}/${items.length}`}
 
             <span className="flex gap-1 items-center">
-                <button className="hover:outline outline-1 outline-theme-1 bg-zinc-700/50 rounded px-2 py-1" onClick={() => dispatch(setFilter([]))}>Select all</button>
-                <button className="hover:outline outline-1 outline-theme-1 bg-zinc-700/50 rounded px-2 py-1" onClick={() => dispatch(setFilter(items))}>Deselect all</button>
+                <button className="hover:outline outline-2 outline-secondary bg-zinc-700/50 rounded px-2 py-1" onClick={() => dispatch(setFilter([]))}>Select all</button>
+                <button className="hover:outline outline-2 outline-secondary bg-zinc-700/50 rounded px-2 py-1" onClick={() => dispatch(setFilter(items))}>Deselect all</button>
             </span>
         </div>
     )

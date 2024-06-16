@@ -9,6 +9,8 @@ export default {
       colors: {
         'theme-1': 'var(--color-theme-100)',
         'theme-2': 'var(--color-theme-200)',
+        'primary': 'var(--color-primary)',
+        'secondary': 'var(--color-secondary)',
       },
     }
   },

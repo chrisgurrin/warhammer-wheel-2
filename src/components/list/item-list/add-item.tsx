@@ -57,7 +57,7 @@ export const AddItem = () => {
                 <button onClick={cancel} className="absolute py-1.5 px-2.5 rounded bg-zinc-600 right-1 top-1/2 -translate-y-1/2"><FontAwesomeIcon icon={faTimes} /></button>
             </div>
             <button 
-                className="bg-theme-1 hover:outline-1 hover:outline-zinc-300 hover:outline rounded py-3 mt-2 w-full" 
+                className="bg-primary hover:outline-1 hover:outline-zinc-300 hover:outline rounded py-3 mt-2 w-full" 
                 onClick={btnAdd_OnClick}
             >
                 <FontAwesomeIcon icon={faPlus} /> Add

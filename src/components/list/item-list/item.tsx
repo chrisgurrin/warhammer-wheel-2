@@ -38,11 +38,11 @@ export const Item:React.FC<Props> = ({item, selected, checked}) => {
                 {item}
             </div>
             <div className={clsx("flex gap-2.5 accent-theme-1 relative",
-                        {'before:border before:border-solid before:border-theme-1 before:rounded before:w-4 before:h-4 before:top-0 before:left-0 before:absolute before:content-[""]':!checked}
+                        {'before:border before:border-solid before:border-secondary before:rounded before:w-4 before:h-4 before:top-0 before:left-0 before:absolute before:content-[""]':!checked}
                     )}
             >
                 <input 
-                    className={clsx("accent-theme-2 relative z-20",
+                    className={clsx("accent-secondary relative z-20",
                         {'opacity-0': !checked}
                     )}
                     type="checkbox" 

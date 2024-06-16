@@ -62,7 +62,7 @@ export const Wheel:React.FC<Props> = () => {
         <div className="flex flex-col items-center gap-8">
             <canvas id="canvas" ref={wheelRef} width={(radius * 2) + 80} height={radius * 2}></canvas>
             <div className="flex flex-col gap-4 items-center">
-                <button className="bg-zinc-700/50 rounded-lg px-8 py-3 hover:outline outline-1 outline-theme-1 w-32" onClick={btnSpin_OnClick}>Spin</button>
+                <button className="bg-zinc-700/50 rounded-lg px-8 py-3 hover:outline outline-primary w-32" onClick={btnSpin_OnClick}>Spin</button>
                 <div className="flex flex-col gap-0.5 text-center items-center">
                     <i className="text-zinc-400">Current item</i>
                     <hr className='border-zinc-400 w-48 block shrink-0'/>

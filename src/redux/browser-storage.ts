@@ -4,7 +4,7 @@ const defaultState = {
     selectedItem:{ value: 'No item'},
     items: {value: []},
     inProgress:{value:[]},
-    theme: {value:'bloodOrange'},
+    theme: {value:'iceCream'},
     view: {value:'item'}
 }
 
