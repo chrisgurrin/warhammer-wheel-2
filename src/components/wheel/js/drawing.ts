@@ -1,5 +1,5 @@
 import { deg2rad } from './maths'
-import {colors} from './colors'
+import {colors} from '../../../theme'
 
 export const drawSegment = (
     ctx: CanvasRenderingContext2D, 

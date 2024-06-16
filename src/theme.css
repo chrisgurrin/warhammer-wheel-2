@@ -13,6 +13,13 @@
     --color-theme-200: #f9a875;
   }
 
+  [data-theme='iceCream'] {
+    --color-theme-100: #7c3f58;  
+    --color-theme-200: #eb6b6f;
+    --color-theme-300: #f9a875;  
+    --color-theme-400: #fff6d3;
+  }
+
   [data-theme='miku'] {
     --color-theme-200: #78478e;
     --color-theme-100: #58e1c3;

@@ -1,5 +1,5 @@
 import {  useSelector } from 'react-redux'
-import './App.css'
+import './theme.css'
 
 import { Wheel } from './components/wheel'
 import store from './redux/store'

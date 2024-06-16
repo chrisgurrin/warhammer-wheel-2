@@ -1,10 +1,5 @@
 
 
-// export type Color = {
-//   segment: string
-//   text: string
-// }
-
 type Color ={
   name:string
   segments: {segment:string, text:string}[]

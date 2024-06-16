@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme, ThemeStore } from "../../redux/reducers/theme";
-import { colors } from "../wheel/js/colors";
+import { colors } from "../../theme";
 
 export const ThemeSelector =() => {
     const theme = useSelector((state:ThemeStore) => state.theme.value);
