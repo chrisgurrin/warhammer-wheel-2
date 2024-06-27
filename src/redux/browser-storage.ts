@@ -1,38 +1,45 @@
-const KEY = "warhammer-wheel";
+const KEY = 'warhammer-wheel';
 
 const defaultState = {
-    selectedItem:{ value: 'No item'},
-    items: {value: []},
-    inProgress:{value:[]},
-    theme: {value:'iceCream'},
-    view: {value:'item'}
-}
+    completed: { value: [] },
+    selectedItem: { value: 'No item' },
+    items: { value: [] },
+    inProgress: { value: [] },
+    theme: { value: 'iceCream' },
+    view: { value: 'item' },
+};
 
 export function loadState() {
-  try {
-    const serializedState = localStorage.getItem(KEY);
+    try {
+        const serializedState = localStorage.getItem(KEY);
 
-    if (!serializedState) return defaultState;
+        if (!serializedState) return defaultState;
 
-    const savedState =  JSON.parse(serializedState);
-    return {...defaultState, ...savedState}
-  } 
-  catch (e) {
-    return undefined;
-  }
+        const savedState = JSON.parse(serializedState);
+        return {
+            ...defaultState,
+            ...savedState,
+        };
+    } catch (e) {
+        return undefined;
+    }
 }
 
-export async function saveState(state:{selectedItem:unknown, items:unknown, inProgress:unknown, theme: unknown}) {
+export async function saveState(state: {
+    selectedItem: unknown;
+    items: unknown;
+    inProgress: unknown;
+    theme: unknown;
+}) {
     try {
-      const serializedState = JSON.stringify({
-        selectedItem: state.selectedItem,
-        items: state.items,
-        inProgress: state.inProgress,
-        theme: state.theme
-      });
-      localStorage.setItem(KEY, serializedState);
-    } 
-    catch (e) {
-      // Ignore
+        const serializedState = JSON.stringify({
+            selectedItem: state.selectedItem,
+            items: state.items,
+            inProgress: state.inProgress,
+            theme: state.theme,
+        });
+        localStorage.setItem(KEY, serializedState);
+    } catch (e) {
+        // Ignore
     }
-  }
+}

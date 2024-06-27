@@ -1,57 +1,107 @@
-import React from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { addFilterItem, removeFilterItem } from "../../../redux/reducers/filter"
-import { addInProgressItem, InProgressStore, removeInProgressItem } from "../../../redux/reducers/inProgress"
-import clsx from "clsx"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPaintBrush, faTimes } from "@fortawesome/free-solid-svg-icons"
-import { removeItem } from "../../../redux/reducers/items"
+import React, { useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    addFilterItem,
+    removeFilterItem,
+} from '../../../redux/reducers/filter';
+import {
+    addInProgressItem,
+    InProgressStore,
+    removeInProgressItem,
+} from '../../../redux/reducers/inProgress';
+import clsx from 'clsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faCheck,
+    faPause,
+    faScrewdriverWrench,
+    faTrash,
+} from '@fortawesome/free-solid-svg-icons';
+import { removeItem } from '../../../redux/reducers/items';
+import {
+    addCompletedItem,
+    CompletedStore,
+    removeCompletedItem,
+} from '../../../redux/reducers/completed';
 
 type Props = {
-    item:string
-    selected: boolean
-    checked:boolean
-}
+    item: { item: string; checked: boolean };
+};
 
-export const Item:React.FC<Props> = ({item, selected, checked}) => {
-    const inProgress = useSelector((state:InProgressStore) => state.inProgress.value)
+export const Item: React.FC<Props> = ({ item }) => {
+    const completed = useSelector(
+        (state: CompletedStore) => state.completed.value,
+    );
+    const inProgress = useSelector(
+        (state: InProgressStore) => state.inProgress.value,
+    );
     const dispatch = useDispatch();
 
+    const status = useMemo(() => {
+        return inProgress.includes(item.item)
+            ? 'inProgress'
+            : completed.includes(item.item)
+              ? 'completed'
+              : '';
+    }, [completed, inProgress, item]);
+
     const onClick = () => {
-        dispatch(
-            inProgress.includes(item) ? removeInProgressItem(item) : addInProgressItem(item)
-        );
-    }
-    
+        if (inProgress.includes(item.item)) {
+            dispatch(removeInProgressItem(item.item));
+            dispatch(addCompletedItem(item.item));
+        } else if (completed.includes(item.item)) {
+            dispatch(removeCompletedItem(item.item));
+        } else {
+            dispatch(addInProgressItem(item.item));
+        }
+    };
+
     return (
-        
         <div className="group/item flex justify-between px-2 py-1 bg-zinc-700 rounded-sm relative z-90 cursor-pointer">
             <div className="flex gap-2">
-                <button  
+                <button
                     onClick={onClick}
-                    className={clsx({'hover:text-zinc-400 text-transparent group-hover/item:text-zinc-500': !selected})}
+                    className={clsx(
+                        'relative rounded uppercase w-4 h-4 text-xs text-zinc-500',
+                        // `${status === 'inProgress' ? 'text-yellow-400' : status === 'completed' ? 'text-green-400' : 'text-sky-500'}`,
+                    )}
                 >
-                    <FontAwesomeIcon 
-                        icon={faPaintBrush}              
+                    <FontAwesomeIcon
+                        icon={
+                            status === 'inProgress'
+                                ? faScrewdriverWrench
+                                : status === 'completed'
+                                  ? faCheck
+                                  : faPause
+                        }
                     />
                 </button>
-                {item}
+                {item.item}
             </div>
-            <div className={clsx("flex gap-2.5 accent-theme-1 relative",
-                        {'before:border before:border-solid before:border-secondary before:rounded before:w-4 before:h-4 before:top-0 before:left-0 before:absolute before:content-[""]':!checked}
-                    )}
+            <div
+                className={clsx('flex gap-2.5 accent-theme-1 relative', {
+                    'before:border before:border-solid before:border-secondary before:rounded before:w-4 before:h-4 before:top-0 before:left-0 before:absolute before:content-[""]':
+                        !item.checked,
+                })}
             >
-                <input 
-                    className={clsx("accent-secondary relative z-20",
-                        {'opacity-0': !checked}
-                    )}
-                    type="checkbox" 
-                    checked={checked}
+                <input
+                    className={clsx('accent-secondary relative z-20', {
+                        'opacity-0': !item.checked,
+                    })}
+                    type="checkbox"
+                    checked={item.checked}
                     onChange={() => {
-                        dispatch(checked ? addFilterItem(item) : removeFilterItem(item))
-                    }}/>
-                <button onClick={() => dispatch(removeItem(item))}><FontAwesomeIcon icon={faTimes} /></button> 
+                        dispatch(
+                            item.checked
+                                ? addFilterItem(item.item)
+                                : removeFilterItem(item.item),
+                        );
+                    }}
+                />
+                <button onClick={() => dispatch(removeItem(item.item))}>
+                    <FontAwesomeIcon icon={faTrash} />
+                </button>
             </div>
         </div>
-    )
-}
+    );
+};

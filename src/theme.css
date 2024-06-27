@@ -3,81 +3,80 @@
 @tailwind utilities;
 
 @layer base {
-  [data-theme='blue']     /* https://lospec.com/palette-list/blk-aqu4 */
-  { 
-    --color-theme-100: #002b59;  
-    --color-theme-200: #005f8c;
-    --color-theme-300: #00b9be;  
-    --color-theme-400: #9ff4e5;
+    [data-theme='blue']     /* https://lospec.com/palette-list/blk-aqu4 */
+    {
+        --color-theme-100: #002b59;
+        --color-theme-200: #005f8c;
+        --color-theme-300: #00b9be;
+        --color-theme-400: #9ff4e5;
 
-    --color-primary: var(--color-theme-300); 
-    --color-secondary: var(--color-theme-200); 
-  }
+        --color-primary: var(--color-theme-300);
+        --color-secondary: var(--color-theme-200);
+    }
 
-  [data-theme='iceCream']     /* https://lospec.com/palette-list/ice-cream-gb */
-  { 
-    --color-theme-100: #7c3f58;  
-    --color-theme-200: #eb6b6f;
-    --color-theme-300: #f9a875;  
-    --color-theme-400: #fff6d3;
+    [data-theme='iceCream']     /* https://lospec.com/palette-list/ice-cream-gb */
+    {
+        --color-theme-100: #7c3f58;
+        --color-theme-200: #eb6b6f;
+        --color-theme-300: #f9a875;
+        --color-theme-400: #fff6d3;
 
-    --color-primary: var(--color-theme-200); 
-    --color-secondary: var(--color-theme-300); 
-  }
+        --color-primary: var(--color-theme-200);
+        --color-secondary: var(--color-theme-300);
+    }
 
-  [data-theme='gameBoy']    /* https://lospec.com/palette-list/andrade-gameboy */
-  {
-    --color-theme-100: #202020;
-    --color-theme-200: #5e6745;
-    --color-theme-300: #aeba89;
-    --color-theme-400: #e3eec0;  
+    [data-theme='gameBoy']    /* https://lospec.com/palette-list/andrade-gameboy */
+    {
+        --color-theme-100: #202020;
+        --color-theme-200: #5e6745;
+        --color-theme-300: #aeba89;
+        --color-theme-400: #e3eec0;
 
-    --color-primary: var(--color-theme-200); 
-    --color-secondary: var(--color-theme-300); 
-  }
+        --color-primary: var(--color-theme-200);
+        --color-secondary: var(--color-theme-300);
+    }
 
-  [data-theme='halloween']    /* https://lospec.com/palette-list/hallowpumpkin */
-  {
-    --color-theme-100: #300030;
-    --color-theme-200: #602878;
-    --color-theme-300: #f89020;
-    --color-theme-400: #f8f088;  
+    [data-theme='halloween']    /* https://lospec.com/palette-list/hallowpumpkin */
+    {
+        --color-theme-100: #300030;
+        --color-theme-200: #602878;
+        --color-theme-300: #f89020;
+        --color-theme-400: #f8f088;
 
-    --color-primary: var(--color-theme-200); 
-    --color-secondary: var(--color-theme-300); 
-  }
+        --color-primary: var(--color-theme-200);
+        --color-secondary: var(--color-theme-300);
+    }
 
-  [data-theme='lollipop']    /* https://lospec.com/palette-list/t-lollipop */
-  {
-    --color-theme-100: #151640;
-    --color-theme-200: #3f6d9e;
-    --color-theme-300: #f783b0;
-    --color-theme-400: #e6f2ef;  
+    [data-theme='lollipop']    /* https://lospec.com/palette-list/t-lollipop */
+    {
+        --color-theme-100: #151640;
+        --color-theme-200: #3f6d9e;
+        --color-theme-300: #f783b0;
+        --color-theme-400: #e6f2ef;
 
-    --color-primary: var(--color-theme-400); 
-    --color-secondary: var(--color-theme-300); 
-  }
+        --color-primary: var(--color-theme-400);
+        --color-secondary: var(--color-theme-300);
+    }
 
-  [data-theme='moonlight']    /* https://lospec.com/palette-list/moonlight-gb */
-  {
-    --color-theme-100: #0f052d;
-    --color-theme-200: #203671;
-    --color-theme-300: #36868f;
-    --color-theme-400: #5fc75d;  
+    [data-theme='moonlight']    /* https://lospec.com/palette-list/moonlight-gb */
+    {
+        --color-theme-100: #0f052d;
+        --color-theme-200: #203671;
+        --color-theme-300: #36868f;
+        --color-theme-400: #5fc75d;
 
-    --color-primary: var(--color-theme-400); 
-    --color-secondary: var(--color-theme-300); 
-  }
+        --color-primary: var(--color-theme-400);
+        --color-secondary: var(--color-theme-300);
+    }
 
-  
-  [data-theme='velvetCherry']    /* https://lospec.com/palette-list/velvet-cherry-gb */
-  {
-    --color-theme-100: #2d162c;
-    --color-theme-200: #412752;
-    --color-theme-300: #683a68;
-    --color-theme-400: #9775a6;  
+    [data-theme='velvetCherry']    /* https://lospec.com/palette-list/velvet-cherry-gb */
+    {
+        --color-theme-100: #2d162c;
+        --color-theme-200: #412752;
+        --color-theme-300: #683a68;
+        --color-theme-400: #9775a6;
 
-    --color-primary: var(--color-theme-300); 
-    --color-secondary: var(--color-theme-200); 
-  }
+        --color-primary: var(--color-theme-300);
+        --color-secondary: var(--color-theme-200);
+    }
 }

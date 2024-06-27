@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export type InProgressStore = {
-    inProgress: {
+export type CompletedStore = {
+    completed: {
         value: string[];
     };
 };
 
-export const inProgressSlice = createSlice({
+export const completedSlice = createSlice({
     name: 'inProgress',
     initialState: {
         value: [],
@@ -15,17 +15,17 @@ export const inProgressSlice = createSlice({
         setFilter: (state, action) => {
             state.value = action.payload;
         },
-        addInProgressItem: (state, action) => {
+        addCompletedItem: (state, action) => {
             state.value = [...state.value, action.payload] as never[];
         },
-        removeInProgressItem: (state, action) => {
+        removeCompletedItem: (state, action) => {
             state.value = state.value.filter((x) => x !== action.payload);
         },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { setFilter, addInProgressItem, removeInProgressItem } =
-    inProgressSlice.actions;
+export const { setFilter, addCompletedItem, removeCompletedItem } =
+    completedSlice.actions;
 
-export default inProgressSlice.reducer;
+export default completedSlice.reducer;

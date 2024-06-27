@@ -1,28 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 export type ThemeStore = {
-  theme: Store
-}
+    theme: Store;
+};
 
 type Store = {
-  value:string
-}
+    value: string;
+};
 
-const defaultStore:Store = {
-    value: ''
-}
+const defaultStore: Store = {
+    value: '',
+};
 
 export const themeSlice = createSlice({
-  name: 'filter',
-  initialState: defaultStore,
-  reducers: {
-    setTheme: (state, action) => {
-      state.value = action.payload
-    }
-  }
-})
+    name: 'filter',
+    initialState: defaultStore,
+    reducers: {
+        setTheme: (state, action) => {
+            state.value = action.payload;
+        },
+    },
+});
 
 // Action creators are generated for each case reducer function
-export const { setTheme } = themeSlice.actions
+export const { setTheme } = themeSlice.actions;
 
-export default themeSlice.reducer
+export default themeSlice.reducer;
