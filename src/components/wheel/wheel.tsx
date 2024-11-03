@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { getSegAngle, redraw, spin } from './js/wheel';
 import { useDispatch, useSelector } from 'react-redux';
-import { ItemStore } from '../../redux/reducers/items';
 import {
     SelectedItemStore,
     setSelectedItem,

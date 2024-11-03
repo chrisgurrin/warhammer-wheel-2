@@ -6,7 +6,7 @@ import store from './redux/store';
 import debounce from 'debounce';
 import { saveState } from './redux/browser-storage';
 import { ThemeStore } from './redux/reducers/theme';
-import { Sidebar } from './components/list/sidebar';
+import { Sidebar } from './components/sidebar/sidebar';
 import { ThemeSelector } from './components/theme/theme-selector';
 import clsx from 'clsx';
 import {
@@ -16,10 +16,9 @@ import {
     setShowPaused,
 } from './redux/reducers/filter';
 import { useMemo } from 'react';
-import completed, { CompletedStore } from './redux/reducers/completed';
-import items, { ItemStore } from './redux/reducers/items';
+import { CompletedStore } from './redux/reducers/completed';
+import { ItemStore } from './redux/reducers/items';
 import { InProgressStore } from './redux/reducers/inProgress';
-import { ViewStore } from './redux/reducers/view';
 
 store.subscribe(
     debounce(() => {
@@ -31,7 +30,6 @@ function App() {
     const dispatch = useDispatch();
     const theme = useSelector((state: ThemeStore) => state.theme.value);
 
-    const view = useSelector((state: ViewStore) => state.view.value);
     const items = useSelector((state: ItemStore) => state.items.value);
     const filter = useSelector((state: FilterStore) => state.filter);
     const completed = useSelector((state: CompletedStore) => state.completed);
@@ -51,28 +49,27 @@ function App() {
 
     const listItems = useMemo(() => {
         return items
-            .filter((item) => {
+            .map((item) => {
                 const isInProgress = inProgress.value.includes(item);
                 const isCompleted = completed.value.includes(item);
-
-                if (!filter.showInProgress && isInProgress) {
-                    return false;
-                }
-
-                if (!filter.showCompleted && isCompleted) {
-                    return false;
-                }
-
-                if (!filter.showPaused && !isCompleted && !isInProgress) {
-                    return false;
-                }
-
-                return true;
+                return {
+                    completed: isCompleted,
+                    inProgress: isInProgress,
+                    checked: !filter.items.includes(item),
+                    item,
+                };
             })
-            .map((item) => ({
-                checked: !filter.items.includes(item),
-                item,
-            }));
+            .filter((item) => {
+                if (
+                    (!filter.showInProgress && item.inProgress) ||
+                    (!filter.showCompleted && item.completed) ||
+                    (!filter.showPaused && !item.completed && !item.inProgress)
+                ) {
+                    return false;
+                } else {
+                    return true;
+                }
+            });
     }, [items, filter, inProgress, completed]);
 
     return (
@@ -90,7 +87,16 @@ function App() {
                     <div>Show/hide</div>
                     <hr />
                     <label className="flex justify-between">
-                        <span className="mr-2">Paused</span>
+                        <span className="mr-2 flex w-full justify-between">
+                            <span>Paused</span>
+                            <span>
+                                (
+                                {items.length -
+                                    (inProgress.value.length +
+                                        completed.value.length)}
+                                )
+                            </span>
+                        </span>
                         <input
                             className={clsx('accent-secondary relative z-20')}
                             type="checkbox"
@@ -101,7 +107,10 @@ function App() {
                         />
                     </label>
                     <label className="flex justify-between">
-                        <span className="mr-2">In progress</span>
+                        <span className="mr-2 flex w-full justify-between">
+                            <span>In progress</span>
+                            <span>({inProgress.value.length})</span>
+                        </span>
                         <input
                             className={clsx('accent-secondary relative z-20')}
                             type="checkbox"
@@ -114,7 +123,10 @@ function App() {
                         />
                     </label>
                     <label className="flex justify-between">
-                        <span className="mr-2">Completed</span>
+                        <span className="mr-2 flex w-full justify-between">
+                            <span>Complete</span>
+                            <span>({completed.value.length})</span>
+                        </span>
                         <input
                             className={clsx('accent-secondary relative z-20')}
                             type="checkbox"

@@ -35,7 +35,7 @@ export const AddItem = () => {
     };
 
     return (
-        <>
+        <div className="h-min">
             <div
                 className={clsx('relative mt-2 w-full', {
                     hidden: !showAddItem,
@@ -66,6 +66,6 @@ export const AddItem = () => {
             >
                 <FontAwesomeIcon icon={faPlus} /> Add
             </button>
-        </>
+        </div>
     );
 };

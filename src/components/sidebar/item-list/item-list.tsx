@@ -1,5 +1,4 @@
 import { Item } from './item';
-import { AddItem } from './add-item';
 import clsx from 'clsx';
 
 type Props = {

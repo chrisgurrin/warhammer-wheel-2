@@ -12,6 +12,9 @@
 
         --color-primary: var(--color-theme-300);
         --color-secondary: var(--color-theme-200);
+
+        --color-item-light: var(--color-theme-300);
+        --color-item-dark: var(--color-theme-100);
     }
 
     [data-theme='iceCream']     /* https://lospec.com/palette-list/ice-cream-gb */
@@ -23,6 +26,9 @@
 
         --color-primary: var(--color-theme-200);
         --color-secondary: var(--color-theme-300);
+
+        --color-item-light: var(--color-theme-400);
+        --color-item-dark: var(--color-theme-200);
     }
 
     [data-theme='gameBoy']    /* https://lospec.com/palette-list/andrade-gameboy */
@@ -34,6 +40,9 @@
 
         --color-primary: var(--color-theme-200);
         --color-secondary: var(--color-theme-300);
+
+        --color-item-light: var(--color-theme-400);
+        --color-item-dark: var(--color-theme-200);
     }
 
     [data-theme='halloween']    /* https://lospec.com/palette-list/hallowpumpkin */
@@ -45,6 +54,9 @@
 
         --color-primary: var(--color-theme-200);
         --color-secondary: var(--color-theme-300);
+
+        --color-item-light: var(--color-theme-300);
+        --color-item-dark: var(--color-theme-200);
     }
 
     [data-theme='lollipop']    /* https://lospec.com/palette-list/t-lollipop */
@@ -56,6 +68,9 @@
 
         --color-primary: var(--color-theme-400);
         --color-secondary: var(--color-theme-300);
+
+        --color-item-light: var(--color-theme-400);
+        --color-item-dark: var(--color-theme-200);
     }
 
     [data-theme='moonlight']    /* https://lospec.com/palette-list/moonlight-gb */
@@ -67,6 +82,9 @@
 
         --color-primary: var(--color-theme-400);
         --color-secondary: var(--color-theme-300);
+
+        --color-item-light: var(--color-theme-400);
+        --color-item-dark: var(--color-theme-200);
     }
 
     [data-theme='velvetCherry']    /* https://lospec.com/palette-list/velvet-cherry-gb */
@@ -78,5 +96,8 @@
 
         --color-primary: var(--color-theme-300);
         --color-secondary: var(--color-theme-200);
+
+        --color-item-light: var(--color-theme-400);
+        --color-item-dark: var(--color-theme-200);
     }
 }

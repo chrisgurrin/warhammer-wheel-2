@@ -15,7 +15,7 @@ export const Sidebar = ({ items, listItems }: Props) => {
 
     return (
         <div className="text-xs flex gap-2 h-full max-h-full relative">
-            <div className="grid grid-rows-[min-content_auto_min-content] w-[26rem] h-full gap-1">
+            <div className="flex flex-col w-[26rem] h-full gap-1">
                 <ItemListToolbar />
                 {view === 'item' && (
                     <>

@@ -57,13 +57,13 @@ export const Item: React.FC<Props> = ({ item }) => {
     };
 
     return (
-        <div className="group/item flex justify-between px-2 py-1 bg-zinc-700 rounded-sm relative z-90 cursor-pointer">
+        <div className="group/item flex justify-between px-2 py-1 bg-zinc-700 rounded-sm relative z-90 cursor-pointer hover:text-item-light hover:bg-item-dark">
             <div className="flex gap-2">
                 <button
                     onClick={onClick}
                     className={clsx(
-                        'relative rounded uppercase w-4 h-4 text-xs text-zinc-500',
-                        // `${status === 'inProgress' ? 'text-yellow-400' : status === 'completed' ? 'text-green-400' : 'text-sky-500'}`,
+                        'relative rounded uppercase w-4 h-4 text-xs',
+                        `${status === 'inProgress' ? 'text-yellow-400' : status === 'completed' ? 'text-green-400' : 'text-zinc-400'}`,
                     )}
                 >
                     <FontAwesomeIcon
@@ -76,7 +76,7 @@ export const Item: React.FC<Props> = ({ item }) => {
                         }
                     />
                 </button>
-                {item.item}
+                <span className="font-bold">{item.item}</span>
             </div>
             <div
                 className={clsx('flex gap-2.5 accent-theme-1 relative', {
