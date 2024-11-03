@@ -19,6 +19,7 @@ import { useMemo } from 'react';
 import { CompletedStore } from './redux/reducers/completed';
 import { ItemStore } from './redux/reducers/items';
 import { InProgressStore } from './redux/reducers/inProgress';
+import { DisplayOptions } from './components/display-options/display-options';
 
 store.subscribe(
     debounce(() => {
@@ -79,66 +80,22 @@ function App() {
         >
             <div className="flex h-full gap-2">
                 <Sidebar items={items} listItems={listItems} />
-                <div
-                    className={clsx(
-                        'bg-zinc-900/60 w-36 h-full p-2 flex flex-col gap-1 text-xs rounded-md',
-                    )}
-                >
-                    <div>Show/hide</div>
-                    <hr />
-                    <label className="flex justify-between">
-                        <span className="mr-2 flex w-full justify-between">
-                            <span>Paused</span>
-                            <span>
-                                (
-                                {items.length -
-                                    (inProgress.value.length +
-                                        completed.value.length)}
-                                )
-                            </span>
-                        </span>
-                        <input
-                            className={clsx('accent-secondary relative z-20')}
-                            type="checkbox"
-                            checked={filter.showPaused}
-                            onChange={() => {
-                                dispatch(setShowPaused(!filter.showPaused));
-                            }}
-                        />
-                    </label>
-                    <label className="flex justify-between">
-                        <span className="mr-2 flex w-full justify-between">
-                            <span>In progress</span>
-                            <span>({inProgress.value.length})</span>
-                        </span>
-                        <input
-                            className={clsx('accent-secondary relative z-20')}
-                            type="checkbox"
-                            checked={filter.showInProgress}
-                            onChange={() => {
-                                dispatch(
-                                    setShowInProgress(!filter.showInProgress),
-                                );
-                            }}
-                        />
-                    </label>
-                    <label className="flex justify-between">
-                        <span className="mr-2 flex w-full justify-between">
-                            <span>Complete</span>
-                            <span>({completed.value.length})</span>
-                        </span>
-                        <input
-                            className={clsx('accent-secondary relative z-20')}
-                            type="checkbox"
-                            checked={filter.showCompleted}
-                            onChange={() => {
-                                dispatch(
-                                    setShowCompleted(!filter.showCompleted),
-                                );
-                            }}
-                        />
-                    </label>
-                </div>
+                <DisplayOptions
+                    items={items}
+                    listItems={listItems}
+                    inProgressItems={inProgress}
+                    completedItems={completed}
+                    filter={filter}
+                    onShowPausedChange={() =>
+                        dispatch(setShowPaused(!filter.showInProgress))
+                    }
+                    onShowInProgressChange={() =>
+                        dispatch(setShowInProgress(!filter.showInProgress))
+                    }
+                    onShowCompletedChange={() =>
+                        dispatch(setShowCompleted(!filter.showInProgress))
+                    }
+                />
             </div>
             <Wheel items={wheelItems} />
             <div className="flex flex-grow justify-end h-full">
