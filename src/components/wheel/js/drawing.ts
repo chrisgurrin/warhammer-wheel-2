@@ -1,4 +1,4 @@
-import { deg2rad, rad2deg } from './maths';
+import { deg2rad } from './maths';
 import { colors } from '../../../theme';
 
 export const drawSegment = (
