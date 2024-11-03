@@ -8,7 +8,7 @@ type Props = {
 export const ItemList = ({ items }: Props) => {
     return (
         <div className="rounded-md flex-grow overflow-hidden">
-            <div className="h-full flex flex-col gap-0.5 overflow-y-scroll bg-zinc-900 p-0.5">
+            <div className="h-full flex flex-col gap-1 overflow-y-scroll bg-zinc-900 px-0.5  py-1">
                 {items.map((item) => {
                     return <Item key={item.item} item={item} />;
                 })}

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+
+const theme = {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
         extend: {
@@ -11,8 +12,12 @@ export default {
 
                 'item-light': 'var(--color-item-light)',
                 'item-dark': 'var(--color-item-dark)',
+
+                'item-in-progress': 'var(--color-item-in-progress)',
             },
         },
     },
     plugins: [],
 };
+
+export default theme;
