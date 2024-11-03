@@ -9,7 +9,7 @@ export const ItemList = ({ items }: Props) => {
     return (
         <div className="flex flex-col flex-grow gap-0.5 overflow-y-scroll bg-zinc-900 p-0.5">
             {items.map((item) => {
-                return <Item item={item} />;
+                return <Item key={item.item} item={item} />;
             })}
             <div
                 className={clsx(

@@ -11,16 +11,13 @@ export const ThemeSelector = () => {
             <select
                 className="bg-zinc-900 py-1 px-2 rounded h-fit"
                 onChange={(e) => dispatch(setTheme(e.target.value))}
+                value={theme}
             >
-                {Object.keys(colors).map((c) => {
-                    return theme === c ? (
-                        <option selected value={c}>
-                            {colors[c].name}
-                        </option>
-                    ) : (
-                        <option value={c}>{colors[c].name}</option>
-                    );
-                })}
+                {Object.keys(colors).map((c) => (
+                    <option key={c} value={c}>
+                        {colors[c].name}
+                    </option>
+                ))}
             </select>
         </>
     );

@@ -1,4 +1,4 @@
-import { deg2rad } from './maths';
+import { deg2rad, rad2deg } from './maths';
 import { colors } from '../../../theme';
 
 export const drawSegment = (
@@ -23,9 +23,6 @@ export const drawSegment = (
         startAngle + segAngle - deg2rad(360 / numSegments),
     );
 
-    // ctx.strokeStyle = "blue";
-    // ctx.stroke();
-
     ctx.fillStyle = color;
     ctx.fill();
 
@@ -43,6 +40,7 @@ export const drawSegmentText = (
     color: string,
 ) => {
     ctx.save();
+
     ctx.translate(c, c);
     ctx.rotate(angle - deg2rad(360 / numSegments));
 
