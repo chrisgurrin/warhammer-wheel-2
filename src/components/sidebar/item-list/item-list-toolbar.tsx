@@ -12,7 +12,7 @@ export const ItemListToolbar = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className="flex w-full">
+        <div className="flex w-full text-sm">
             <Toggle
                 label="Raw text"
                 onChange={() =>
@@ -25,17 +25,17 @@ export const ItemListToolbar = () => {
                     { invisible: view !== 'item' },
                 )}
             >
-                {`${items.length - filter.items.length}/${items.length}`}
+                {/* {`${items.length - filter.items.length}/${items.length}`} */}
 
-                <span className="flex gap-1 items-center">
+                <span className="flex gap-2 items-center">
                     <button
-                        className="hover:outline outline-2 outline-secondary bg-zinc-700/50 rounded px-2 py-1"
+                        className="hover:outline outline-2 outline-secondary bg-zinc-700/50 rounded px-1 py-1 whitespace-nowrap"
                         onClick={() => dispatch(setFilter([]))}
                     >
                         Select all
                     </button>
                     <button
-                        className="hover:outline outline-2 outline-secondary bg-zinc-700/50 rounded px-2 py-1"
+                        className="hover:outline outline-2 outline-secondary bg-zinc-700/50 rounded px-1 py-1 whitespace-nowrap"
                         onClick={() => dispatch(setFilter(items))}
                     >
                         Deselect all

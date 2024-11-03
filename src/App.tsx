@@ -8,7 +8,6 @@ import { saveState } from './redux/browser-storage';
 import { ThemeStore } from './redux/reducers/theme';
 import { Sidebar } from './components/sidebar/sidebar';
 import { ThemeSelector } from './components/theme/theme-selector';
-import clsx from 'clsx';
 import {
     FilterStore,
     setShowCompleted,
@@ -20,6 +19,7 @@ import { CompletedStore } from './redux/reducers/completed';
 import { ItemStore } from './redux/reducers/items';
 import { InProgressStore } from './redux/reducers/inProgress';
 import { DisplayOptions } from './components/display-options/display-options';
+import { ItemListToolbar } from './components/sidebar/item-list/item-list-toolbar';
 
 store.subscribe(
     debounce(() => {
@@ -78,24 +78,24 @@ function App() {
             data-theme={theme}
             className="flex justify-start items-center w-min flex-grow shrink-0 pt-6 pb-8 px-8 gap-52 max-h-full"
         >
-            <div className="flex h-full gap-2">
-                <Sidebar items={items} listItems={listItems} />
-                <DisplayOptions
-                    items={items}
-                    listItems={listItems}
-                    inProgressItems={inProgress}
-                    completedItems={completed}
-                    filter={filter}
-                    onShowPausedChange={() =>
-                        dispatch(setShowPaused(!filter.showInProgress))
-                    }
-                    onShowInProgressChange={() =>
-                        dispatch(setShowInProgress(!filter.showInProgress))
-                    }
-                    onShowCompletedChange={() =>
-                        dispatch(setShowCompleted(!filter.showInProgress))
-                    }
-                />
+            <div className="flex flex-col h-full gap-2">
+                <div className="">
+                    <ItemListToolbar />
+                </div>
+                <div className="flex h-full gap-2">
+                    <Sidebar items={items} listItems={listItems} />
+                    <DisplayOptions
+                        onShowPausedChange={() =>
+                            dispatch(setShowPaused(!filter.showPaused))
+                        }
+                        onShowInProgressChange={() =>
+                            dispatch(setShowInProgress(!filter.showInProgress))
+                        }
+                        onShowCompletedChange={() =>
+                            dispatch(setShowCompleted(!filter.showCompleted))
+                        }
+                    />
+                </div>
             </div>
             <Wheel items={wheelItems} />
             <div className="flex flex-grow justify-end h-full">

@@ -1,0 +1,64 @@
+{
+  "hash": "7099af89",
+  "configHash": "f939ca39",
+  "lockfileHash": "af952980",
+  "browserHash": "3d1361e0",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "624393bc",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "3cbb054d",
+      "needsInterop": true
+    },
+    "react-redux": {
+      "src": "../../node_modules/.pnpm/react-redux@9.1.2_@types+react@18.3.3_react@18.3.1_redux@5.0.1/node_modules/react-redux/dist/react-redux.mjs",
+      "file": "react-redux.js",
+      "fileHash": "edf23203",
+      "needsInterop": false
+    },
+    "@reduxjs/toolkit": {
+      "src": "../../node_modules/.pnpm/@reduxjs+toolkit@2.2.5_react-redux@9.1.2_@types+react@18.3.3_react@18.3.1_redux@5.0.1__react@18.3.1/node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs",
+      "file": "@reduxjs_toolkit.js",
+      "fileHash": "77ed5f0d",
+      "needsInterop": false
+    },
+    "debounce": {
+      "src": "../../node_modules/.pnpm/debounce@2.1.0/node_modules/debounce/index.js",
+      "file": "debounce.js",
+      "fileHash": "f195e4a3",
+      "needsInterop": true
+    },
+    "clsx": {
+      "src": "../../node_modules/.pnpm/clsx@2.1.1/node_modules/clsx/dist/clsx.mjs",
+      "file": "clsx.js",
+      "fileHash": "5312e336",
+      "needsInterop": false
+    },
+    "@fortawesome/react-fontawesome": {
+      "src": "../../node_modules/.pnpm/@fortawesome+react-fontawesome@0.2.2_@fortawesome+fontawesome-svg-core@6.5.2_react@18.3.1/node_modules/@fortawesome/react-fontawesome/index.es.js",
+      "file": "@fortawesome_react-fontawesome.js",
+      "fileHash": "1a2feda1",
+      "needsInterop": false
+    },
+    "@fortawesome/free-solid-svg-icons": {
+      "src": "../../node_modules/.pnpm/@fortawesome+free-solid-svg-icons@6.5.2/node_modules/@fortawesome/free-solid-svg-icons/index.mjs",
+      "file": "@fortawesome_free-solid-svg-icons.js",
+      "fileHash": "5e86d496",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-WIS7EYSQ": {
+      "file": "chunk-WIS7EYSQ.js"
+    },
+    "chunk-LNEMQRCO": {
+      "file": "chunk-LNEMQRCO.js"
+    }
+  }
+}
