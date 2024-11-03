@@ -77,11 +77,11 @@ function App() {
             data-theme={theme}
             className="flex justify-start items-center w-min flex-grow shrink-0 pt-6 pb-8 px-8 gap-52 max-h-full"
         >
-            <div className="flex h-full">
+            <div className="flex h-full gap-2">
                 <Sidebar items={items} listItems={listItems} />
                 <div
                     className={clsx(
-                        'bg-zinc-900/60 w-36 h-full p-2 flex flex-col gap-1 text-xs',
+                        'bg-zinc-900/60 w-36 h-full p-2 flex flex-col gap-1 text-xs rounded-md',
                     )}
                 >
                     <div>Show/hide</div>
